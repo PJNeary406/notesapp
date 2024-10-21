@@ -23,7 +23,40 @@ import { generateClient } from "aws-amplify/data";
  * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
  */
 
-Amplify.configure({});
+Amplify.configure({
+  Auth: {
+
+
+    // REQUIRED - Amazon Cognito Region
+    region: 'us-east-1',
+
+    // OPTIONAL - Amazon Cognito User Pool ID
+    userPoolId: 'us-east-1_SjmJkqcBy',
+
+    // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+    userPoolWebClientId: 'a1b2c3d4e5f6g7h8i9j0k1l2m3',
+
+    // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
+    mandatorySignIn: false,
+
+    // OPTIONAL - Configuration for cookie storage
+    // Note: if the secure flag is set to true, then the cookie transmission requires a secure protocol
+    cookieStorage: {
+    // REQUIRED - Cookie domain (only required if cookieStorage is provided)
+        domain: '.amplifyapp.com',
+    // OPTIONAL - Cookie path
+        path: '/',
+    // OPTIONAL - Cookie expiration in days
+        expires: 365,
+    // OPTIONAL - Cookie secure flag
+    // Either true or false, indicating if the cookie transmission requires a secure protocol (https).
+        secure: true
+    },
+
+    // OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
+    authenticationFlowType: 'USER_PASSWORD_AUTH'
+  }
+});
 
 const client = generateClient({
   authMode: "userPool",
