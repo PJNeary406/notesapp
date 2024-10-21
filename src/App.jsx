@@ -23,7 +23,7 @@ import { generateClient } from "aws-amplify/data";
  * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
  */
 
-Amplify.configure();
+Amplify.configure({});
 
 const client = generateClient({
   authMode: "userPool",

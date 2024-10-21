@@ -33,3 +33,7 @@
 .box:nth-child(3n + 3) {
   grid-column: 3;
 }
+
+[data-amplify-authenticator] [data-amplify-footer] {
+  display: none;
+}
