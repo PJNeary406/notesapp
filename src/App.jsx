@@ -100,7 +100,7 @@ export default function App() {
   }
 
   return (
-    <Authenticator>
+    <Authenticator loginMechanisms={['username']} variation="modal" hideSignUp>
       {({ signOut }) => (
         <Flex
           className="App"
